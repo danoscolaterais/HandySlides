@@ -28,15 +28,12 @@ def is_fist(hand_landmarks):
 
     print(f"thumb distance : {thumb_dist:.3f}, index : {index_dist:.3f}, middle :   {middle_dist:.3f}")
 
-    return thumb_dist < 0.2 and index_dist < 0.1 and middle_dist < 0.1
+    return thumb_dist < 0.2 and index_dist < 0.2 and middle_dist < 0.2
 
-last_action_time = 0
-cooldown = 0.3 
 
 while cap.isOpened():
     ret, frame = cap.read()
     if not ret:
-      
         break
 
     frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
@@ -49,21 +46,18 @@ while cap.isOpened():
 
             mp_drawing.draw_landmarks(frame, hand_landmarks, mp_hands.HAND_CONNECTIONS)
 
-            current_time = time.time()
             if is_fist(hand_landmarks):
                 print(f"{hand_label} hand is fist")
-                if current_time - last_action_time > cooldown:
-                    if hand_label == "Right":
-                        pyautogui.press("up")  
-                        print("up")
-                        time.sleep(0.5)
-                    elif hand_label == "Left":
-                        pyautogui.press("down")  
-                        print("down")
-                        time.sleep(0.5)
-                    last_action_time = current_time
+                if hand_label == "Right":
+                    pyautogui.press("up")  
+                    print("up")
+                    time.sleep(0.4)
+                elif hand_label == "Left":
+                    pyautogui.press("down")  
+                    print("down")
+                    time.sleep(0.4)
             else:
-                print(f"{hand_label} is not fist")
+                print(f"{hand_label} is not fist!")
 
     else:
         print("hands not detection")
