@@ -1,5 +1,7 @@
 # Arm Gesture Control for PowerPoint Slides
-
+<div align="center">
+   <img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/233ca1a9-8bef-4a36-905e-14888efd4e9c" />
+</div>
 This Python project uses OpenCV and MediaPipe to control PowerPoint presentations through arm gestures. By raising your left or right arm, you can navigate between slides. The project detects arm gestures in real-time using a webcam and simulates key presses on the keyboard (left or right arrow) to move between slides.
 
 ---
