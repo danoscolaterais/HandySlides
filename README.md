@@ -33,19 +33,24 @@
    cd HandySlides
    ```
 
-2. **Install required dependencies:**
+2. **Create virtual environment:**
+   ```bash
+   python -m venv venv
+   venv\Scripts\activate  # Windows
+
+3. **Install required dependencies:**
    ```bash
    pip install opencv-python mediapipe pyautogui
    ```
 
-3. **Connect your webcam** and ensure it's working.
+4. **Connect your webcam** and ensure it's working.
 
-4. **Run the application:**
+5. **Run the application:**
    ```bash
    python HandySlides.py
    ```
 
-5. **Configure your preferences** in the setup window and click "Start"!
+6. **Configure your preferences** in the setup window and click "Start"!
 
 ## 📸 Interface Preview
 
