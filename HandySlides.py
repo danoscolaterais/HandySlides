@@ -21,7 +21,8 @@ class HandySlidesConfig:
             "cooldown": 1.0,
             "show_debug": True,
             "powerpoint_keys": True,  # True for arrows, False for Page Up/Down
-            "language": "en"  # "pt" for Portuguese, "en" for English, "fr" for French
+            "language": "en",  # "pt" for Portuguese, "en" for English, "fr" for French
+            "mirror_camera": False # True to mirror camera feed
         }
         
         if os.path.exists(self.config_file):
@@ -54,6 +55,7 @@ TRANSLATIONS = {
         "options": "Opções",
         "show_debug": "Mostrar informações de debug",
         "use_arrows": "Usar setas do teclado (desmarque para Page Up/Down)",
+        "mirror_camera": "Espelhar imagem da câmara",
         "language": "Idioma:",
         "test_camera": "Testar Câmara",
         "restore_defaults": "Restaurar Padrões",
@@ -83,6 +85,7 @@ TRANSLATIONS = {
         "options": "Options",
         "show_debug": "Show debug information",
         "use_arrows": "Use keyboard arrows (uncheck for Page Up/Down)",
+        "mirror_camera": "Mirror camera image",
         "language": "Language:",
         "test_camera": "Test Camera",
         "restore_defaults": "Restore Defaults",
@@ -112,6 +115,7 @@ TRANSLATIONS = {
         "options": "Options",
         "show_debug": "Afficher les informations de débogage",
         "use_arrows": "Utiliser les flèches du clavier (décocher pour Page Haut/Bas)",
+        "mirror_camera": "Miroir de l'image de la caméra",
         "language": "Langue :",
         "test_camera": "Tester la caméra",
         "restore_defaults": "Restaurer les valeurs par défaut",
@@ -151,6 +155,7 @@ class ConfigWindow:
         self.debug_var = tk.BooleanVar(value=self.config.settings["show_debug"])
         self.keys_var = tk.BooleanVar(value=self.config.settings["powerpoint_keys"])
         self.language_var = tk.StringVar(value=self.current_language)
+        self.mirror_var = tk.BooleanVar(value=self.config.settings["mirror_camera"])
         
         # Convert arm values to translated text
         right_action = self.config.settings["right_arm_action"]
@@ -211,7 +216,10 @@ class ConfigWindow:
                                       state="readonly", width=15)
         self.left_combo.grid(row=1, column=1, padx=10, pady=2)
         self.left_combo.bind("<<ComboboxSelected>>", self.on_left_arm_changed)
-        
+        self.mirror_check = ttk.Checkbutton(self.gesture_frame, text=self.texts["mirror_camera"], 
+                                            variable=self.mirror_var)
+        self.mirror_check.grid(row=2, column=0, columnspan=2, sticky="w", pady=5)
+
         # Advanced settings
         self.advanced_frame = ttk.LabelFrame(main_frame, text=self.texts["advanced_config"], padding=10)
         self.advanced_frame.pack(fill="x", pady=5)
@@ -382,6 +390,7 @@ class ConfigWindow:
         self.options_frame.configure(text=self.texts["options"])
         self.debug_check.configure(text=self.texts["show_debug"])
         self.keys_check.configure(text=self.texts["use_arrows"])
+        self.mirror_check.configure(text=self.texts["mirror_camera"])
         
         self.test_button.configure(text=self.texts["test_camera"])
         self.restore_button.configure(text=self.texts["restore_defaults"])
@@ -412,6 +421,7 @@ class ConfigWindow:
         self.cooldown_var.set(1.0)
         self.debug_var.set(True)
         self.keys_var.set(True)
+        self.mirror_var.set(True)
         
     def save_configuration(self):
         """Save settings without starting the program"""
@@ -440,7 +450,8 @@ class ConfigWindow:
             "cooldown": self.cooldown_var.get(),
             "show_debug": self.debug_var.get(),
             "powerpoint_keys": self.keys_var.get(),
-            "language": self.current_language
+            "language": self.current_language,
+            "mirror_camera": self.mirror_var.get()
         })
         self.config.save_config()
         return True
@@ -533,7 +544,8 @@ class HandySlides:
                     break
 
                 # Mirror frame to be more intuitive
-                frame = cv2.flip(frame, 1)
+                if self.config["mirror_camera"]:
+                    frame = cv2.flip(frame, 1)
                 frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
                 results = pose.process(frame_rgb)
 
