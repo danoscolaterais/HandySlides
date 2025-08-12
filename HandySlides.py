@@ -168,9 +168,9 @@ class ConfigWindow:
         
     def create_widgets(self):
         # Title
-        title_label = tk.Label(self.root, text=self.texts["title"], 
+        self.title_label = tk.Label(self.root, text=self.texts["title"], 
                               font=("Arial", 16, "bold"))
-        title_label.pack(pady=10)
+        self.title_label.pack(pady=10)
         
         # Main frame
         main_frame = ttk.Frame(self.root)
@@ -373,10 +373,12 @@ class ConfigWindow:
     def update_interface_texts(self):
         """Update all interface texts"""
         self.root.title(self.texts["title"])
-        
+        self.title_label.configure(text=self.texts["title"])
+
         # Update combobox values
         self.right_combo['values'] = [self.texts["next"], self.texts["previous"]]
         self.left_combo['values'] = [self.texts["next"], self.texts["previous"]]
+        self.mirror_check.configure(text=self.texts["mirror_camera"])
         
         # Update widget texts
         self.gesture_frame.configure(text=self.texts["gesture_config"])
@@ -390,7 +392,6 @@ class ConfigWindow:
         self.options_frame.configure(text=self.texts["options"])
         self.debug_check.configure(text=self.texts["show_debug"])
         self.keys_check.configure(text=self.texts["use_arrows"])
-        self.mirror_check.configure(text=self.texts["mirror_camera"])
         
         self.test_button.configure(text=self.texts["test_camera"])
         self.restore_button.configure(text=self.texts["restore_defaults"])
