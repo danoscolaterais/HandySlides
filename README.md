@@ -50,9 +50,8 @@
 
 3.  **Install required dependencies:**
     ```bash
-    pip install -r requirements.txt
+     pip install opencv-python mediapipe pyautogui
     ```
-    *Nota: Adicionei o `requirements.txt` ao repositório para facilitar a instalação, o que é uma prática recomendada.*
 
 4.  **Connect your webcam** and ensure it's working.
 
@@ -111,6 +110,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **OpenCV** community for computer vision tools
 - Original inspiration from gesture control research
 
+This project is a fork of the original work by matin kaffashian from the repository https://github.com/matinkafashian/HandySlides-project-Controlled-PowerPoint-Slides-with-OpenCV-. The initial idea and base code were inspired by their excellent work.
 ---
 
 <div align="center">
