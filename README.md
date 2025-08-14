@@ -110,7 +110,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **OpenCV** community for computer vision tools
 - Original inspiration from gesture control research
 
-This project is a fork of the original work by matin kaffashian from the repository https://github.com/matinkafashian/HandySlides-project-Controlled-PowerPoint-Slides-with-OpenCV-. The initial idea and base code were inspired by their excellent work.
+  This project is a fork of the original work by matin kaffashian from the repository https://github.com/matinkafashian/HandySlides-project-Controlled-PowerPoint-Slides-with-OpenCV-. The initial idea and base code were inspired by their excellent work.
 ---
 
 <div align="center">
