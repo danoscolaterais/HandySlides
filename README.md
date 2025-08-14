@@ -1,15 +1,17 @@
 # HandySlides 🙋‍♂️
 
 <div align="center">
-   <img width="600" height="600" alt="HandySlides Demo" src="https://github.com/user-attachments/assets/233ca1a9-8bef-4a36-905e-14888efd4e9c" />
+    <img width="600" height="600" alt="HandySlides Demo" src="https://github.com/user-attachments/assets/233ca1a9-8bef-4a36-905e-14888efd4e9c" />
 </div>
 
 <div align="center">
-   
-![Python](https://img.shields.io/badge/python-v3.7+-blue.svg)
-![OpenCV](https://img.shields.io/badge/OpenCV-4.0+-green.svg)
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Platform](https://img.shields.io/badge/platform-windows%20%7C%20macOS%20%7C%20linux-lightgrey)
+    
+[![Python](https://img.shields.io/badge/Python-3.7+-blue.svg?style=flat-square&logo=python)](https://www.python.org/)
+[![OpenCV](https://img.shields.io/badge/OpenCV-4.0+-green.svg?style=flat-square&logo=opencv)](https://opencv.org/)
+[![MediaPipe](https://img.shields.io/badge/MediaPipe-0.8+-orange.svg?style=flat-square&logo=google)](https://google.github.io/mediapipe/)
+[![PyAutoGUI](https://img.shields.io/badge/PyAutoGUI-0.9+-lightgrey.svg?style=flat-square)](https://pyautogui.readthedocs.io/en/latest/)
+[![Tkinter](https://img.shields.io/badge/GUI-Tkinter-yellow.svg?style=flat-square)](https://docs.python.org/3/library/tkinter.html)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
 
 </div>
 
@@ -25,38 +27,45 @@
 - 🎨 **Mirror camera option** - Natural interaction experience
 - 🎹 **Flexible key mapping** - Choose between arrow keys or Page Up/Down
 
-## 🚀 Quick Start
+## 📥 Installation for Users
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/danoscolaterais/HandySlides.git
-   cd HandySlides
-   ```
+1.  Download the `HandySlides.exe` from the latest [**release**](https://github.com/danoscolaterais/HandySlides/releases).
+2.  Run the executable and configure your preferences in the setup window.
+3.  Click "Start" and begin your presentation!
 
-2. **Create virtual environment:**
-   ```bash
-   python -m venv venv
-   venv\Scripts\activate  # Windows
+## 🚀 For Developers
 
-3. **Install required dependencies:**
-   ```bash
-   pip install opencv-python mediapipe pyautogui
-   ```
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/danoscolaterais/HandySlides.git](https://github.com/danoscolaterais/HandySlides.git)
+    cd HandySlides
+    ```
 
-4. **Connect your webcam** and ensure it's working.
+2.  **Create a virtual environment:**
+    ```bash
+    python -m venv venv
+    venv\Scripts\activate  # Windows
+    # source venv/bin/activate # macOS/Linux
+    ```
 
-5. **Run the application:**
-   ```bash
-   python HandySlides.py
-   ```
+3.  **Install required dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+    *Nota: Adicionei o `requirements.txt` ao repositório para facilitar a instalação, o que é uma prática recomendada.*
 
-6. **Configure your preferences** in the setup window and click "Start"!
+4.  **Connect your webcam** and ensure it's working.
+
+5.  **Run the application:**
+    ```bash
+    python HandySlides.py
+    ```
 
 ## 📸 Interface Preview
 
 <div align="center">
-   <img width="564" height="579" alt="HandySlides Configuration Interface" src="https://github.com/user-attachments/assets/6b9ca4af-f1fa-40bd-81ba-212b4b0d297c" />
-   <p><em>Easy-to-use configuration interface with multi-language support</em></p>
+    <img width="564" height="579" alt="HandySlides Configuration Interface" src="https://github.com/user-attachments/assets/6b9ca4af-f1fa-40bd-81ba-212b4b0d297c" />
+    <p><em>Easy-to-use configuration interface with multi-language support</em></p>
 </div>
 
 ## 🎯 Use Cases
@@ -81,8 +90,8 @@ The application uses **MediaPipe** for pose detection and **OpenCV** for camera 
 |-------|----------|
 | **Camera not detected** | Ensure no other apps are using the webcam |
 | **Gestures not responding** | Adjust sensitivity in configuration window |
-| **Poor detection** | Ensure good lighting and clear background |
-| **Wrong gesture direction** | Use mirror camera option for natural interaction |
+| **Poor detection** | Ensure good lighting and a clear background |
+| **Wrong gesture direction** | Use the "Mirror camera" option for natural interaction |
 | **Too sensitive** | Increase cooldown time in advanced settings |
 
 ## 🛠️ System Requirements
@@ -90,7 +99,7 @@ The application uses **MediaPipe** for pose detection and **OpenCV** for camera 
 - **Python 3.7+**
 - **Webcam** (built-in or external)
 - **Operating System**: Windows, macOS, or Linux
-- **Dependencies**: OpenCV, MediaPipe, PyAutoGUI
+- **Dependencies**: OpenCV, MediaPipe, PyAutoGUI, Tkinter
 
 ## 📝 License
 
@@ -105,6 +114,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 <div align="center">
-   <p>Made with ❤️ for better presentations</p>
-   <p>⭐ Star this repo if you found it helpful!</p>
+    <p>Made with ❤️ for better presentations</p>
+    <p>⭐ Star this repo if you found it helpful!</p>
 </div>
