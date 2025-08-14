@@ -37,7 +37,7 @@
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/danoscolaterais/HandySlides.git](https://github.com/danoscolaterais/HandySlides.git)
+    git clone https://github.com/danoscolaterais/HandySlides.git
     cd HandySlides
     ```
 
